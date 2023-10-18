@@ -35,4 +35,20 @@ public class SerieDao {
 		
 	}
 
+	public Serie findById(Long id) {
+		// SELECT * FROM SERIES WHERE ID=?
+		
+		return series
+			.stream()
+			.filter(serie -> serie.id() == id)
+			.findFirst()
+			.orElse(null);
+	}
+
+	public void delete(Serie serie) {
+		// DELETE FROM SERIES WHERE ID=?
+		series.remove(serie);
+		System.out.println(series);
+	}
+
 }
